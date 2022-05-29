@@ -1,0 +1,22 @@
+{
+  "name": "jobsindeed",
+  "version": "1.0.0",
+  "description": "social posting app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theMVPshop/jobsIndeed.git"
+  },
+  "author": "Keith Kritselis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theMVPshop/jobsIndeed/issues"
+  },
+  "homepage": "https://github.com/theMVPshop/jobsIndeed#readme",
+  "dependencies": {
+    "canvas": "^2.9.1"
+  }
+}
