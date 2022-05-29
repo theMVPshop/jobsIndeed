@@ -7,11 +7,20 @@ const d = new Date();
 let day = d.getDay();
 const axios = require('axios');
 const cheerio = require('cheerio');
+const url = `https://www.indeed.com/jobs?q=${search[day]}&l=USA&explvl=entry_level&fromage=1&remotejob=032b3046-06a3-4876-8dfd-474eb5e7ed11&vjk=1906e1b955a53d6e`;
+
+/** Cut & Paste Node.js Code **/
+const SocialPost = require("social-post-api"); // Install "npm i social-post-api"
+
+// Live API Key
+const social = new SocialPost("MYMGS9V-MBYMCH4-GHHV5WY-YF7WAW8");
+
+
 
 (async () => {
   const args = process.argv.slice(2);
   const postCode = args[0] || 2000;
-  const url = `https://www.indeed.com/jobs?q=${search[day]}&l=USA&explvl=entry_level&fromage=1&remotejob=032b3046-06a3-4876-8dfd-474eb5e7ed11&vjk=1906e1b955a53d6e`;
+  
   try {
     const response = await axios.get(url);
     const $ = cheerio.load(response.data);
@@ -57,6 +66,18 @@ function ig() {
     context.drawImage(image, 78, 650, 923, 239)
     const buffer = canvas.toBuffer('image/png')
     fs.writeFileSync('./ig.png', buffer)
+    const run = async () => {
+        /** post */
+        const post = await social.post({
+            "post": url,
+            "platforms": ["linkedin", "twitter"],
+            "mediaUrls": ["./ig.png"]
+        }).catch(console.error);
+        console.log(post);
+      };
+       
+      run();
+   
   })
   })
 }

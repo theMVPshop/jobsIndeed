@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.27.2",
     "canvas": "^2.9.1",
-    "cheerio": "^1.0.0-rc.11"
+    "cheerio": "^1.0.0-rc.11",
+    "social-post-api": "^1.0.20"
   }
 }
