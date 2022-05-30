@@ -71,7 +71,7 @@ function ig() {
         const post = await social.post({
             "post": url,
             "platforms": ["linkedin", "twitter"],
-            "mediaUrls": ["./ig.png"]
+            "mediaUrls": ["https://github.com/theMVPshop/jobsIndeed/blob/main/ig.png?raw=true"]
         }).catch(console.error);
         console.log(post);
       };
