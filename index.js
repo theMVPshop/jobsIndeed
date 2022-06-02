@@ -1,7 +1,8 @@
 const fs = require('fs')
 const { createCanvas, loadImage } = require('canvas')
 
-let col1, col2, col3, response, noOfJobs;
+let col1, col2, col3, response;
+let noOfJobs = 0;
 let search = ["Javascript", "HTML", "CSS", "Front End", "SQL", "React Developer", "Web Developer"];
 const d = new Date();
 let day = d.getDay();
@@ -71,7 +72,7 @@ function ig() {
         const post = await social.post({
             "post": url,
             "platforms": ["linkedin", "twitter"],
-            "mediaUrls": ["https://github.com/theMVPshop/jobsIndeed/blob/main/ig.png?raw=true"]
+            "mediaUrls": ["./ig.png"]
         }).catch(console.error);
         console.log(post);
       };
