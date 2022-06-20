@@ -16,22 +16,22 @@ const SocialPost = require("social-post-api"); // Install "npm i social-post-api
 
 // Live API Key
 const social = new SocialPost("MYMGS9V-MBYMCH4-GHHV5WY-YF7WAW8");
-
-(async () => {
-  const args = process.argv.slice(2);
-  const postCode = args[0] || 2000;
-  
-  try {
-    const response = await axios.get(url);
-    const $ = cheerio.load(response.data);
-    noOfJobs = $("#searchCountPages").text().trim().split(" ")[3];
-    console.log("#jobs:", noOfJobs);
-    ig();
-  } catch (e) {
-    console.error(`Error while fetching rental properties for ${postCode} - ${e.message}`);
-  }
-})();
-
+if (noOfJobs>0){
+    (async () => {
+    const args = process.argv.slice(2);
+    const postCode = args[0] || 2000;
+    
+    try {
+        const response = await axios.get(url);
+        const $ = cheerio.load(response.data);
+        noOfJobs = $("#searchCountPages").text().trim().split(" ")[3];
+        console.log("#jobs:", noOfJobs);
+        ig();
+    } catch (e) {
+        console.error(`Error while fetching rental properties for ${postCode} - ${e.message}`);
+    }
+    })();
+}
 
 function ig() {
   const width = 1080;
